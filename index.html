@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GoTravel Nusa Penida | Private Tour & Photography</title>
   
+  <!-- FAVICON RESMI GOTRAVEL -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+
   <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,38 +75,39 @@
         <img src="images/logo.png" 
              alt="GoTravel Nusa Penida" 
              class="h-12 w-auto object-contain"
-             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=100&q=80';">
+             onerror="this.onerror=null; this.src='images/favicon.png';">
       </a>
 
       <!-- Desktop Navigation Menu -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
         <a href="#home" class="text-ocean border-b-2 border-lagoon pb-0.5" data-i18n="nav_home">Home</a>
-        <a href="#packages" class="hover:text-lagoon transition" data-i18n="nav_packages">Paket Tour</a>
-        <a href="#experiences" class="hover:text-lagoon transition" data-i18n="nav_experiences">Aktivitas</a>
-        <a href="#how-to-book" class="hover:text-lagoon transition" data-i18n="nav_how">Cara Booking</a>
+        <a href="#packages" class="hover:text-lagoon transition" data-i18n="nav_packages">Tour Packages</a>
+        <a href="#experiences" class="hover:text-lagoon transition" data-i18n="nav_experiences">Experiences</a>
+        <a href="#how-to-book" class="hover:text-lagoon transition" data-i18n="nav_how">How to Book</a>
       </nav>
 
-      <!-- Right CTAs: Language Toggle & WhatsApp Button -->
+      <!-- Right CTAs: Language Pill Switcher & WhatsApp Button -->
       <div class="flex items-center gap-3">
         
-        <!-- TOMBOL GANTI BAHASA AKTIF (ID / EN) -->
-        <button onclick="toggleLanguage()" 
-                id="langBtn" 
-                class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-300 text-xs font-bold text-slate-700 hover:border-lagoon hover:text-lagoon transition bg-white shadow-sm cursor-pointer">
-          <span id="langFlag">🇮🇩</span>
-          <span id="langText">ID</span>
-          <i data-lucide="refresh-cw" class="w-3 h-3 text-slate-400"></i>
-        </button>
+        <!-- MODERN PILL LANGUAGE SWITCHER (EN | ID) -->
+        <div class="flex items-center bg-slate-100 p-1 rounded-full border border-slate-200 text-xs font-bold shadow-inner">
+          <button onclick="setLanguage('en')" id="btnLangEN" class="px-2.5 py-1 rounded-full bg-ocean text-white shadow-sm transition-all duration-200 flex items-center gap-1">
+            <span>🇬🇧</span> EN
+          </button>
+          <button onclick="setLanguage('id')" id="btnLangID" class="px-2.5 py-1 rounded-full text-slate-600 hover:text-ocean transition-all duration-200 flex items-center gap-1">
+            <span>🇮🇩</span> ID
+          </button>
+        </div>
 
         <a href="https://instagram.com/gotravel_nusapenida" target="_blank" class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-300 text-xs font-semibold text-slate-600 hover:border-lagoon hover:text-lagoon transition">
           <i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-600"></i>
           <span>@gotravel_nusapenida</span>
         </a>
 
-        <button onclick="openBookingModal('General')" class="bg-wa hover:bg-wa-hover text-white px-5 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-md shadow-wa/20 transition">
+        <button onclick="openBookingModal('General')" class="bg-wa hover:bg-wa-hover text-white px-5 py-2 rounded-full text-xs sm:text-sm font-bold flex items-center gap-1.5 shadow-md shadow-wa/20 transition">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
           <span class="hidden sm:inline" data-i18n="btn_book_wa">Book via WhatsApp</span>
-          <span class="sm:hidden">Booking</span>
+          <span class="sm:hidden">Book</span>
           <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
         </button>
       </div>
@@ -132,18 +137,18 @@
         </h1>
 
         <p class="text-slate-200 text-base sm:text-lg mb-8 leading-relaxed max-w-xl" data-i18n="hero_desc">
-          Nikmati keindahan tebing ikonik dan pantai eksotis tanpa rasa terburu-buru. Mobil ber-AC pribadi, driver lokal berpengalaman, dan waktu liburan yang sepenuhnya milik Anda.
+          Discover iconic cliffs and exotic beaches without feeling rushed. Private AC car, experienced local guide, and a trip that is entirely yours.
         </p>
 
         <div class="flex flex-wrap items-center gap-4">
           <button onclick="openBookingModal('General')" class="bg-wa hover:bg-wa-hover text-white px-7 py-3.5 rounded-full font-bold flex items-center gap-2 shadow-lg shadow-wa/30 transition">
             <i data-lucide="message-circle" class="w-5 h-5"></i>
-            <span data-i18n="hero_cta1">Booking Jadwal Trip</span>
+            <span data-i18n="hero_cta1">Book Your Trip</span>
             <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
           </button>
 
           <a href="#packages" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white px-7 py-3.5 rounded-full font-semibold flex items-center gap-2 transition">
-            <span data-i18n="hero_cta2">Lihat Pilihan Paket</span>
+            <span data-i18n="hero_cta2">View Packages</span>
             <i data-lucide="arrow-down" class="w-4 h-4 ml-1"></i>
           </a>
         </div>
@@ -164,8 +169,8 @@
           <i data-lucide="car" class="w-6 h-6"></i>
         </div>
         <div>
-          <h4 class="font-bold text-ocean text-sm sm:text-base" data-i18n="feat1_title">Mobil Ber-AC</h4>
-          <p class="text-xs text-slate-500 mt-0.5" data-i18n="feat1_desc">100% Private & Nyaman</p>
+          <h4 class="font-bold text-ocean text-sm sm:text-base" data-i18n="feat1_title">Private AC Car</h4>
+          <p class="text-xs text-slate-500 mt-0.5" data-i18n="feat1_desc">100% Private & Comfortable</p>
         </div>
       </div>
 
@@ -174,8 +179,8 @@
           <i data-lucide="camera" class="w-6 h-6"></i>
         </div>
         <div>
-          <h4 class="font-bold text-ocean text-sm sm:text-base" data-i18n="feat2_title">Driver Fotografer</h4>
-          <p class="text-xs text-slate-500 mt-0.5" data-i18n="feat2_desc">Bantu Foto & Konten Estetik</p>
+          <h4 class="font-bold text-ocean text-sm sm:text-base" data-i18n="feat2_title">Driver & Photographer</h4>
+          <p class="text-xs text-slate-500 mt-0.5" data-i18n="feat2_desc">Helps you take aesthetic photos</p>
         </div>
       </div>
 
@@ -184,8 +189,8 @@
           <i data-lucide="shield-check" class="w-6 h-6"></i>
         </div>
         <div>
-          <h4 class="font-bold text-ocean text-sm sm:text-base" data-i18n="feat3_title">Bebas Antre Tiket</h4>
-          <p class="text-xs text-slate-500 mt-0.5" data-i18n="feat3_desc">Fastboat PP & Retribusi Diurus</p>
+          <h4 class="font-bold text-ocean text-sm sm:text-base" data-i18n="feat3_title">All Tickets Handled</h4>
+          <p class="text-xs text-slate-500 mt-0.5" data-i18n="feat3_desc">Return Fastboat & Entry Fees</p>
         </div>
       </div>
 
@@ -194,8 +199,8 @@
           <i data-lucide="map-pin" class="w-6 h-6"></i>
         </div>
         <div>
-          <h4 class="font-bold text-ocean text-sm sm:text-base" data-i18n="feat4_title">Driver Asli Penida</h4>
-          <p class="text-xs text-slate-500 mt-0.5" data-i18n="feat4_desc">Paham Spot & Waktu Terbaik</p>
+          <h4 class="font-bold text-ocean text-sm sm:text-base" data-i18n="feat4_title">Local Island Driver</h4>
+          <p class="text-xs text-slate-500 mt-0.5" data-i18n="feat4_desc">Knows secret spots & best timing</p>
         </div>
       </div>
 
@@ -210,9 +215,9 @@
           <span class="text-xs uppercase tracking-widest font-bold text-lagoon" data-i18n="pkg_tag">POPULAR PACKAGES</span>
           <span class="w-8 h-px bg-lagoon"></span>
         </div>
-        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-ocean" data-i18n="pkg_heading">Pilihan Paket Tour Nusa Penida</h2>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-ocean" data-i18n="pkg_heading">Choose Your Nusa Penida Tour</h2>
       </div>
-      <p class="mt-2 sm:mt-0 text-sm text-slate-500" data-i18n="pkg_include_note">Tiket Fastboat PP + Mobil Private + BBM + Driver & Tiket Wisata</p>
+      <p class="mt-2 sm:mt-0 text-sm text-slate-500" data-i18n="pkg_include_note">Return Fastboat + Private Car + Fuel + Driver & Destination Tickets</p>
     </div>
 
     <!-- Cards Grid -->
@@ -223,15 +228,15 @@
         <div class="relative overflow-hidden aspect-[16/11]">
           <img src="images/west-tour.jpg" alt="West Nusa Penida Tour" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
           <span class="absolute top-4 left-4 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1">
-            <i data-lucide="flame" class="w-3.5 h-3.5"></i> <span data-i18n="badge_popular">Paling Populer</span>
+            <i data-lucide="flame" class="w-3.5 h-3.5"></i> <span data-i18n="badge_popular">Most Popular</span>
           </span>
         </div>
         <div class="p-6 flex-1 flex flex-col justify-between">
           <div>
             <h3 class="text-xl font-bold text-ocean mb-2">West Nusa Penida Tour</h3>
-            <p class="text-xs text-slate-500 mb-4" data-i18n="west_desc">Jelajahi ikon paling populer tebing T-Rex dan laguna alami Penida barat.</p>
+            <p class="text-xs text-slate-500 mb-4" data-i18n="west_desc">Explore the world-famous T-Rex cliff and natural coastal lagoons of West Penida.</p>
             <div class="space-y-1.5 text-xs text-slate-700 bg-slate-50 p-3.5 rounded-xl border border-slate-100 mb-6">
-              <p class="font-semibold text-ocean" data-i18n="main_dest_title">Destinasi Utama:</p>
+              <p class="font-semibold text-ocean" data-i18n="main_dest_title">Main Highlights:</p>
               <p>• Kelingking Beach (T-Rex Cliff)</p>
               <p>• Broken Beach & Angel's Billabong</p>
               <p>• Crystal Bay (Sunset & Beach)</p>
@@ -239,11 +244,11 @@
           </div>
           <div>
             <div class="flex items-center justify-between text-xs text-slate-500 py-3 border-t border-slate-100 mb-4">
-              <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-lagoon"></i> <span data-i18n="duration_1day">1 Hari (07.30 - 16.30)</span></span>
-              <span class="flex items-center gap-1"><i data-lucide="camera" class="w-3.5 h-3.5 text-lagoon"></i> <span data-i18n="free_photo">Free Foto</span></span>
+              <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-lagoon"></i> <span data-i18n="duration_1day">1 Day (07:30 - 16:30)</span></span>
+              <span class="flex items-center gap-1"><i data-lucide="camera" class="w-3.5 h-3.5 text-lagoon"></i> <span data-i18n="free_photo">Free Photos</span></span>
             </div>
             <button onclick="openBookingModal('West Nusa Penida Tour')" class="w-full bg-ocean hover:bg-ocean-dark text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 shadow-md transition">
-              <span data-i18n="btn_book_west">Booking Paket Barat</span> <i data-lucide="arrow-up-right" class="w-4 h-4 text-lagoon-light"></i>
+              <span data-i18n="btn_book_west">Book West Tour</span> <i data-lucide="arrow-up-right" class="w-4 h-4 text-lagoon-light"></i>
             </button>
           </div>
         </div>
@@ -260,9 +265,9 @@
         <div class="p-6 flex-1 flex flex-col justify-between">
           <div>
             <h3 class="text-xl font-bold text-ocean mb-2">East Nusa Penida Tour</h3>
-            <p class="text-xs text-slate-500 mb-4" data-i18n="east_desc">Rute terbaik pemburu konten foto estetik dengan panorama tebing kristal.</p>
-            <div class="space-y-1.5 text-xs text-slate-700 bg-slate-50 p-3.5 rounded-xl border border-slate-100 mb-6">
-              <p class="font-semibold text-ocean" data-i18n="main_dest_title">Destinasi Utama:</p>
+            <p class="text-xs text-slate-500 mb-4" data-i18n="east_desc">The scenic route for photography lovers featuring crystal blue cliff views.</p>
+            <div class="space-y-1.5 text-slate-700 bg-slate-50 p-3.5 rounded-xl border border-slate-100 mb-6 text-xs">
+              <p class="font-semibold text-ocean" data-i18n="main_dest_title">Main Highlights:</p>
               <p>• Diamond Beach & Cliff Stairs</p>
               <p>• Atuh Beach</p>
               <p>• Tree House (Molenteng) & Raja Lima</p>
@@ -270,11 +275,11 @@
           </div>
           <div>
             <div class="flex items-center justify-between text-xs text-slate-500 py-3 border-t border-slate-100 mb-4">
-              <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-lagoon"></i> <span data-i18n="duration_1day">1 Hari (07.30 - 16.30)</span></span>
-              <span class="flex items-center gap-1"><i data-lucide="camera" class="w-3.5 h-3.5 text-lagoon"></i> <span data-i18n="free_photo">Free Foto</span></span>
+              <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-lagoon"></i> <span data-i18n="duration_1day">1 Day (07:30 - 16:30)</span></span>
+              <span class="flex items-center gap-1"><i data-lucide="camera" class="w-3.5 h-3.5 text-lagoon"></i> <span data-i18n="free_photo">Free Photos</span></span>
             </div>
             <button onclick="openBookingModal('East Nusa Penida Tour')" class="w-full bg-ocean hover:bg-ocean-dark text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 shadow-md transition">
-              <span data-i18n="btn_book_east">Booking Paket Timur</span> <i data-lucide="arrow-up-right" class="w-4 h-4 text-lagoon-light"></i>
+              <span data-i18n="btn_book_east">Book East Tour</span> <i data-lucide="arrow-up-right" class="w-4 h-4 text-lagoon-light"></i>
             </button>
           </div>
         </div>
@@ -291,21 +296,21 @@
         <div class="p-6 flex-1 flex flex-col justify-between">
           <div>
             <h3 class="text-xl font-bold text-ocean mb-2">Custom & Snorkeling Trip</h3>
-            <p class="text-xs text-slate-500 mb-4" data-i18n="custom_desc">Berenang bersama Manta Ray atau atur destinasi favorit sesuai keinginan Anda.</p>
-            <div class="space-y-1.5 text-xs text-slate-700 bg-slate-50 p-3.5 rounded-xl border border-slate-100 mb-6">
-              <p class="font-semibold text-ocean" data-i18n="exp_options_title">Pilihan Pengalaman:</p>
-              <p data-i18n="custom_item1">• Snorkeling Manta Bay & Gamat Bay</p>
-              <p data-i18n="custom_item2">• Gabung Trip Barat & Timur</p>
-              <p data-i18n="custom_item3">• Paket Menginap (2 Hari 1 Malam)</p>
+            <p class="text-xs text-slate-500 mb-4" data-i18n="custom_desc">Swim with Manta Rays or customize your favorite destinations at your own pace.</p>
+            <div class="space-y-1.5 text-slate-700 bg-slate-50 p-3.5 rounded-xl border border-slate-100 mb-6 text-xs">
+              <p class="font-semibold text-ocean" data-i18n="exp_options_title">Experience Options:</p>
+              <p data-i18n="custom_item1">• Manta Bay & Gamat Bay Snorkeling</p>
+              <p data-i18n="custom_item2">• Combine West & East Highlights</p>
+              <p data-i18n="custom_item3">• Overnight Tour Package (2D1N)</p>
             </div>
           </div>
           <div>
             <div class="flex items-center justify-between text-xs text-slate-500 py-3 border-t border-slate-100 mb-4">
-              <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-lagoon"></i> <span data-i18n="duration_flex">Jadwal Fleksibel</span></span>
-              <span class="flex items-center gap-1"><i data-lucide="users" class="w-3.5 h-3.5 text-lagoon"></i> <span data-i18n="group_private">Privat / Grup</span></span>
+              <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5 text-lagoon"></i> <span data-i18n="duration_flex">Flexible Schedule</span></span>
+              <span class="flex items-center gap-1"><i data-lucide="users" class="w-3.5 h-3.5 text-lagoon"></i> <span data-i18n="group_private">Private / Group</span></span>
             </div>
             <button onclick="openBookingModal('Custom / Snorkeling Trip')" class="w-full bg-lagoon hover:bg-sky-600 text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 shadow-md transition">
-              <span data-i18n="btn_book_custom">Tanya / Rancang Rute Sendiri</span> <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              <span data-i18n="btn_book_custom">Inquire / Custom Route</span> <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </button>
           </div>
         </div>
@@ -328,9 +333,9 @@
           <div class="relative z-10 max-w-lg">
             <span class="text-xs uppercase tracking-widest font-bold text-lagoon-light" data-i18n="snork_tag">MORE THAN JUST A TRIP</span>
             <h3 class="text-3xl sm:text-4xl font-serif font-bold mt-2 mb-3" data-i18n="snork_heading">Snorkeling & Island Experiences</h3>
-            <p class="text-slate-200 text-sm sm:text-base mb-6" data-i18n="snork_desc">Nikmati keindahan bawah laut Nusa Penida yang jernih dan berenang langsung bersama Ikan Pari Manta di habitat aslinya.</p>
+            <p class="text-slate-200 text-sm sm:text-base mb-6" data-i18n="snork_desc">Experience crystal-clear waters and swim alongside wild Giant Manta Rays in their natural ocean sanctuary.</p>
             <button onclick="openBookingModal('Snorkeling Experience')" class="bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/40 text-white px-6 py-2.5 rounded-full text-sm font-semibold flex items-center gap-2 transition">
-              <span data-i18n="btn_consult_snork">Konsultasi Snorkeling</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              <span data-i18n="btn_consult_snork">Inquire Snorkeling</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </button>
           </div>
         </div>
@@ -342,7 +347,7 @@
                 <i data-lucide="waves" class="w-6 h-6"></i>
               </div>
               <div>
-                <h4 class="font-bold text-ocean text-sm" data-i18n="side1_title">Snorkeling Trip</h4>
+                <h4 class="font-bold text-ocean text-sm" data-i18n="side1_title">Snorkeling Adventure</h4>
                 <p class="text-xs text-slate-500" data-i18n="side1_desc">Manta Bay, Gamat Bay, Crystal Bay</p>
               </div>
             </div>
@@ -355,8 +360,8 @@
                 <i data-lucide="ship" class="w-6 h-6"></i>
               </div>
               <div>
-                <h4 class="font-bold text-ocean text-sm" data-i18n="side2_title">Tiket Fastboat PP</h4>
-                <p class="text-xs text-slate-500" data-i18n="side2_desc">Sanur - Nusa Penida PP</p>
+                <h4 class="font-bold text-ocean text-sm" data-i18n="side2_title">Fastboat Transfers</h4>
+                <p class="text-xs text-slate-500" data-i18n="side2_desc">Sanur - Nusa Penida Return</p>
               </div>
             </div>
             <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400"></i>
@@ -368,8 +373,8 @@
                 <i data-lucide="utensils" class="w-6 h-6"></i>
               </div>
               <div>
-                <h4 class="font-bold text-ocean text-sm" data-i18n="side3_title">Makan Siang & Resto</h4>
-                <p class="text-xs text-slate-500" data-i18n="side3_desc">Sudah Termasuk di Paket Tour</p>
+                <h4 class="font-bold text-ocean text-sm" data-i18n="side3_title">Island Lunch Included</h4>
+                <p class="text-xs text-slate-500" data-i18n="side3_desc">Provided in all tour packages</p>
               </div>
             </div>
             <i data-lucide="arrow-right" class="w-4 h-4 text-slate-400"></i>
@@ -384,7 +389,7 @@
   <section id="how-to-book" class="py-20 bg-slate-50 border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <span class="text-xs uppercase tracking-widest font-bold text-lagoon" data-i18n="how_tag">HOW TO BOOK</span>
-      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-ocean mt-2 mb-14" data-i18n="how_heading">Gampang Banget, Cuma 4 Langkah!</h2>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-ocean mt-2 mb-14" data-i18n="how_heading">Super Easy, Just 4 Simple Steps!</h2>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="flex flex-col items-center">
@@ -392,8 +397,8 @@
             <i data-lucide="map" class="w-7 h-7"></i>
           </div>
           <span class="w-7 h-7 rounded-full bg-lagoon/20 text-ocean text-xs font-bold flex items-center justify-center mb-2">1</span>
-          <h4 class="text-base font-bold text-ocean mb-1" data-i18n="step1_title">Pilih Paket</h4>
-          <p class="text-xs sm:text-sm text-slate-600 max-w-xs" data-i18n="step1_desc">Pilih paket Barat, Timur, atau Custom Snorkeling Trip.</p>
+          <h4 class="text-base font-bold text-ocean mb-1" data-i18n="step1_title">Select Package</h4>
+          <p class="text-xs sm:text-sm text-slate-600 max-w-xs" data-i18n="step1_desc">Choose West, East, or Custom Snorkeling trip.</p>
         </div>
 
         <div class="flex flex-col items-center">
@@ -401,8 +406,8 @@
             <i data-lucide="calendar" class="w-7 h-7"></i>
           </div>
           <span class="w-7 h-7 rounded-full bg-lagoon/20 text-ocean text-xs font-bold flex items-center justify-center mb-2">2</span>
-          <h4 class="text-base font-bold text-ocean mb-1" data-i18n="step2_title">Isi Detail</h4>
-          <p class="text-xs sm:text-sm text-slate-600 max-w-xs" data-i18n="step2_desc">Tentukan tanggal trip dan jumlah rombongan.</p>
+          <h4 class="text-base font-bold text-ocean mb-1" data-i18n="step2_title">Fill Details</h4>
+          <p class="text-xs sm:text-sm text-slate-600 max-w-xs" data-i18n="step2_desc">Pick your travel date and group size.</p>
         </div>
 
         <div class="flex flex-col items-center">
@@ -410,8 +415,8 @@
             <i data-lucide="message-square" class="w-7 h-7"></i>
           </div>
           <span class="w-7 h-7 rounded-full bg-lagoon/20 text-ocean text-xs font-bold flex items-center justify-center mb-2">3</span>
-          <h4 class="text-base font-bold text-ocean mb-1" data-i18n="step3_title">Kirim ke WhatsApp</h4>
-          <p class="text-xs sm:text-sm text-slate-600 max-w-xs" data-i18n="step3_desc">Pesan tersusun otomatis dan langsung terkirim ke WhatsApp driver.</p>
+          <h4 class="text-base font-bold text-ocean mb-1" data-i18n="step3_title">Send to WhatsApp</h4>
+          <p class="text-xs sm:text-sm text-slate-600 max-w-xs" data-i18n="step3_desc">Your trip inquiry is auto-composed directly to our driver.</p>
         </div>
 
         <div class="flex flex-col items-center">
@@ -419,8 +424,8 @@
             <i data-lucide="check-circle" class="w-7 h-7"></i>
           </div>
           <span class="w-7 h-7 rounded-full bg-lagoon/20 text-ocean text-xs font-bold flex items-center justify-center mb-2">4</span>
-          <h4 class="text-base font-bold text-ocean mb-1" data-i18n="step4_title">Jadwal Diamankan</h4>
-          <p class="text-xs sm:text-sm text-slate-600 max-w-xs" data-i18n="step4_desc">Driver mengonfirmasi ketersediaan dan mobil siap menjemput Anda!</p>
+          <h4 class="text-base font-bold text-ocean mb-1" data-i18n="step4_title">Schedule Confirmed</h4>
+          <p class="text-xs sm:text-sm text-slate-600 max-w-xs" data-i18n="step4_desc">Driver confirms availability and you're all set to go!</p>
         </div>
       </div>
     </div>
@@ -431,13 +436,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
       <div>
         <span class="text-xs uppercase tracking-widest font-bold text-gold" data-i18n="close_tag">LET'S EXPLORE TOGETHER</span>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mt-2 mb-3" data-i18n="close_heading">Siap Jalan-jalan ke Nusa Penida?</h2>
-        <p class="text-slate-300 text-sm sm:text-base max-w-xl" data-i18n="close_desc">Konsultasikan rencana liburanmu langsung dengan driver lokal kami via WhatsApp.</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mt-2 mb-3" data-i18n="close_heading">Ready to Explore Nusa Penida?</h2>
+        <p class="text-slate-300 text-sm sm:text-base max-w-xl" data-i18n="close_desc">Chat directly with our friendly local driver to plan your dream vacation.</p>
       </div>
 
       <button onclick="openBookingModal('General')" class="bg-wa hover:bg-wa-hover text-white px-8 py-4 rounded-full font-bold text-base flex items-center gap-3 shadow-xl shadow-wa/30 hover:scale-105 transition shrink-0">
         <i data-lucide="message-circle" class="w-6 h-6"></i>
-        <span data-i18n="btn_chat_wa">Chat WhatsApp Sekarang</span>
+        <span data-i18n="btn_chat_wa">Chat on WhatsApp Now</span>
         <i data-lucide="arrow-right" class="w-5 h-5"></i>
       </button>
     </div>
@@ -454,14 +459,14 @@
   <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
   <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3">
     <a id="floatingTooltip"
-       href="https://wa.me/6285790969823?text=Halo%20Admin%20GoTravel%20Nusa%20Penida!%20Mau%20tanya-tanya%20seputar%20trip%20ke%20Penida%20dong..." 
+       href="https://wa.me/6285790969823?text=Hello%20GoTravel%20Nusa%20Penida!%20I'd%20like%20to%20ask%20about%20tour%20packages%20in%20Nusa%20Penida..." 
        target="_blank"
        class="hidden sm:flex items-center bg-white text-ocean font-bold text-xs py-2 px-3.5 rounded-full shadow-lg border border-slate-200 hover:border-wa transition">
-      <span data-i18n="floating_tooltip">Tanya Driver / Chat Kami</span>
+      <span data-i18n="floating_tooltip">Inquire Driver via WhatsApp</span>
     </a>
     
     <a id="floatingBtn"
-       href="https://wa.me/6285790969823?text=Halo%20Admin%20GoTravel%20Nusa%20Penida!%20Mau%20tanya-tanya%20seputar%20trip%20ke%20Penida%20dong..." 
+       href="https://wa.me/6285790969823?text=Hello%20GoTravel%20Nusa%20Penida!%20I'd%20like%20to%20ask%20about%20tour%20packages%20in%20Nusa%20Penida..." 
        target="_blank" 
        title="Chat Driver via WhatsApp"
        class="w-14 h-14 rounded-full bg-wa hover:bg-wa-hover text-white flex items-center justify-center shadow-2xl shadow-wa/50 hover:scale-110 active:scale-95 transition-all animate-pulse-subtle">
@@ -477,133 +482,57 @@
       </button>
 
       <div class="mb-6">
-        <span class="text-xs uppercase font-bold text-lagoon tracking-widest" data-i18n="modal_badge">FORM BOOKING CEPAT</span>
-        <h3 class="text-2xl font-serif font-bold text-ocean" data-i18n="modal_title">Pesan Jadwal Tour</h3>
-        <p class="text-xs text-slate-500 mt-1" data-i18n="modal_desc">Pesan langsung terkirim rapi ke WhatsApp Mas Admin.</p>
+        <span class="text-xs uppercase font-bold text-lagoon tracking-widest" data-i18n="modal_badge">QUICK BOOKING FORM</span>
+        <h3 class="text-2xl font-serif font-bold text-ocean" data-i18n="modal_title">Reserve Your Tour</h3>
+        <p class="text-xs text-slate-500 mt-1" data-i18n="modal_desc">Your details will be formatted into a WhatsApp message.</p>
       </div>
 
       <form id="tourForm" onsubmit="handleSendWhatsApp(event)" class="space-y-4">
         <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="label_pkg">Pilihan Paket Wisata</label>
+          <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="label_pkg">Selected Tour Package</label>
           <select id="modalPackage" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-lagoon">
-            <option value="West Nusa Penida Tour">West Nusa Penida Tour (Barat)</option>
-            <option value="East Nusa Penida Tour">East Nusa Penida Tour (Timur)</option>
+            <option value="West Nusa Penida Tour">West Nusa Penida Tour</option>
+            <option value="East Nusa Penida Tour">East Nusa Penida Tour</option>
             <option value="Custom / Snorkeling Trip">Custom Trip & Snorkeling</option>
-            <option value="Paket Menginap 2D1N">Paket Menginap (2 Hari 1 Malam)</option>
+            <option value="Overnight Package (2D1N)">Overnight Package (2D1N)</option>
           </select>
         </div>
 
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="label_date">Tanggal Trip</label>
+            <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="label_date">Tour Date</label>
             <input type="date" id="modalDate" required class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-lagoon">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="label_guests">Jumlah Orang</label>
+            <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="label_guests">Number of Guests</label>
             <input type="number" id="modalGuests" min="1" value="2" required class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-lagoon">
           </div>
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="label_name">Nama Pemesan</label>
-          <input type="text" id="modalName" placeholder="Contoh: Sarah / Budi" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-lagoon">
+          <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="label_name">Your Name</label>
+          <input type="text" id="modalName" placeholder="e.g. John Doe / Sarah" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-lagoon">
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="label_pickup">Lokasi Jemput (Hotel / Sanur)</label>
-          <input type="text" id="modalPickup" placeholder="Contoh: Hotel Sanur / Penida Port" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-lagoon">
+          <label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="label_pickup">Pickup Area (Hotel / Port)</label>
+          <input type="text" id="modalPickup" placeholder="e.g. Sanur Hotel / Penida Port" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-lagoon">
         </div>
 
         <button type="submit" class="w-full bg-wa hover:bg-wa-hover text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-wa/30 transition mt-2">
           <i data-lucide="message-circle" class="w-5 h-5"></i>
-          <span data-i18n="btn_submit_modal">Kirim Booking ke WhatsApp</span>
+          <span data-i18n="btn_submit_modal">Send Booking via WhatsApp</span>
         </button>
       </form>
     </div>
   </div>
 
-  <!-- ================= JAVASCRIPT: LOGIKA DUAL BAHASA (ID & EN) ================= -->
+  <!-- ================= JAVASCRIPT: LOGIKA DUAL BAHASA (DEFAULT EN) ================= -->
   <script>
     lucide.createIcons();
     const WA_NUMBER = "6285790969823";
 
-    // KAMUS PENERJEMAH (BAHASA INDONESIA & ENGLISH)
     const DICTIONARY = {
-      id: {
-        nav_home: "Home",
-        nav_packages: "Paket Tour",
-        nav_experiences: "Aktivitas",
-        nav_how: "Cara Booking",
-        btn_book_wa: "Book via WhatsApp",
-        hero_badge: "EXCLUSIVE PRIVATE TOUR",
-        hero_desc: "Nikmati keindahan tebing ikonik dan pantai eksotis tanpa rasa terburu-buru. Mobil ber-AC pribadi, driver lokal berpengalaman, dan waktu liburan yang sepenuhnya milik Anda.",
-        hero_cta1: "Booking Jadwal Trip",
-        hero_cta2: "Lihat Pilihan Paket",
-        hero_handwriting: "Beautiful Island Awaits ~",
-        feat1_title: "Mobil Ber-AC",
-        feat1_desc: "100% Private & Nyaman",
-        feat2_title: "Driver Fotografer",
-        feat2_desc: "Bantu Foto & Konten Estetik",
-        feat3_title: "Bebas Antre Tiket",
-        feat3_desc: "Fastboat PP & Retribusi Diurus",
-        feat4_title: "Driver Asli Penida",
-        feat4_desc: "Paham Spot & Waktu Terbaik",
-        pkg_tag: "POPULAR PACKAGES",
-        pkg_heading: "Pilihan Paket Tour Nusa Penida",
-        pkg_include_note: "Tiket Fastboat PP + Mobil Private + BBM + Driver & Tiket Wisata",
-        badge_popular: "Paling Populer",
-        badge_recommended: "Recommended",
-        badge_custom: "Mix & Snorkeling",
-        west_desc: "Jelajahi ikon paling populer tebing T-Rex dan laguna alami Penida barat.",
-        east_desc: "Rute terbaik pemburu konten foto estetik dengan panorama tebing kristal.",
-        custom_desc: "Berenang bersama Manta Ray atau atur destinasi favorit sesuai keinginan Anda.",
-        main_dest_title: "Destinasi Utama:",
-        exp_options_title: "Pilihan Pengalaman:",
-        custom_item1: "• Snorkeling Manta Bay & Gamat Bay",
-        custom_item2: "• Gabung Trip Barat & Timur",
-        custom_item3: "• Paket Menginap (2 Hari 1 Malam)",
-        duration_1day: "1 Hari (07.30 - 16.30)",
-        duration_flex: "Jadwal Fleksibel",
-        free_photo: "Free Foto",
-        group_private: "Privat / Grup",
-        btn_book_west: "Booking Paket Barat",
-        btn_book_east: "Booking Paket Timur",
-        btn_book_custom: "Tanya / Rancang Rute Sendiri",
-        snork_tag: "MORE THAN JUST A TRIP",
-        snork_heading: "Snorkeling & Island Experiences",
-        snork_desc: "Nikmati keindahan bawah laut Nusa Penida yang jernih dan berenang langsung bersama Ikan Pari Manta di habitat aslinya.",
-        btn_consult_snork: "Konsultasi Snorkeling",
-        side1_title: "Snorkeling Trip",
-        side1_desc: "Manta Bay, Gamat Bay, Crystal Bay",
-        side2_title: "Tiket Fastboat PP",
-        side2_desc: "Sanur - Nusa Penida PP",
-        side3_title: "Makan Siang & Resto",
-        side3_desc: "Sudah Termasuk di Paket Tour",
-        how_tag: "HOW TO BOOK",
-        how_heading: "Gampang Banget, Cuma 4 Langkah!",
-        step1_title: "Pilih Paket",
-        step1_desc: "Pilih paket Barat, Timur, atau Custom Snorkeling Trip.",
-        step2_title: "Isi Detail",
-        step2_desc: "Tentukan tanggal trip dan jumlah rombongan.",
-        step3_title: "Kirim ke WhatsApp",
-        step3_desc: "Pesan tersusun otomatis dan langsung terkirim ke WhatsApp driver.",
-        step4_title: "Jadwal Diamankan",
-        step4_desc: "Driver mengonfirmasi ketersediaan dan mobil siap menjemput Anda!",
-        close_tag: "LET'S EXPLORE TOGETHER",
-        close_heading: "Siap Jalan-jalan ke Nusa Penida?",
-        close_desc: "Konsultasikan rencana liburanmu langsung dengan driver lokal kami via WhatsApp.",
-        btn_chat_wa: "Chat WhatsApp Sekarang",
-        floating_tooltip: "Tanya Driver / Chat Kami",
-        modal_badge: "FORM BOOKING CEPAT",
-        modal_title: "Pesan Jadwal Tour",
-        modal_desc: "Pesan langsung terkirim rapi ke WhatsApp Mas Admin.",
-        label_pkg: "Pilihan Paket Wisata",
-        label_date: "Tanggal Trip",
-        label_guests: "Jumlah Orang",
-        label_name: "Nama Pemesan",
-        label_pickup: "Lokasi Jemput (Hotel / Sanur)",
-        btn_submit_modal: "Kirim Booking ke WhatsApp"
-      },
       en: {
         nav_home: "Home",
         nav_packages: "Tour Packages",
@@ -678,19 +607,103 @@
         label_name: "Your Name",
         label_pickup: "Pickup Area (Hotel / Port)",
         btn_submit_modal: "Send Booking via WhatsApp"
+      },
+      id: {
+        nav_home: "Home",
+        nav_packages: "Paket Tour",
+        nav_experiences: "Aktivitas",
+        nav_how: "Cara Booking",
+        btn_book_wa: "Book via WhatsApp",
+        hero_badge: "EXCLUSIVE PRIVATE TOUR",
+        hero_desc: "Nikmati keindahan tebing ikonik dan pantai eksotis tanpa rasa terburu-buru. Mobil ber-AC pribadi, driver lokal berpengalaman, dan waktu liburan yang sepenuhnya milik Anda.",
+        hero_cta1: "Booking Jadwal Trip",
+        hero_cta2: "Lihat Pilihan Paket",
+        hero_handwriting: "Beautiful Island Awaits ~",
+        feat1_title: "Mobil Ber-AC",
+        feat1_desc: "100% Private & Nyaman",
+        feat2_title: "Driver Fotografer",
+        feat2_desc: "Bantu Foto & Konten Estetik",
+        feat3_title: "Bebas Antre Tiket",
+        feat3_desc: "Fastboat PP & Retribusi Diurus",
+        feat4_title: "Driver Asli Penida",
+        feat4_desc: "Paham Spot & Waktu Terbaik",
+        pkg_tag: "POPULAR PACKAGES",
+        pkg_heading: "Pilihan Paket Tour Nusa Penida",
+        pkg_include_note: "Tiket Fastboat PP + Mobil Private + BBM + Driver & Tiket Wisata",
+        badge_popular: "Paling Populer",
+        badge_recommended: "Recommended",
+        badge_custom: "Mix & Snorkeling",
+        west_desc: "Jelajahi ikon paling populer tebing T-Rex dan laguna alami Penida barat.",
+        east_desc: "Rute terbaik pemburu konten foto estetik dengan panorama tebing kristal.",
+        custom_desc: "Berenang bersama Manta Ray atau atur destinasi favorit sesuai keinginan Anda.",
+        main_dest_title: "Destinasi Utama:",
+        exp_options_title: "Pilihan Pengalaman:",
+        custom_item1: "• Snorkeling Manta Bay & Gamat Bay",
+        custom_item2: "• Gabung Trip Barat & Timur",
+        custom_item3: "• Paket Menginap (2 Hari 1 Malam)",
+        duration_1day: "1 Hari (07.30 - 16.30)",
+        duration_flex: "Jadwal Fleksibel",
+        free_photo: "Free Foto",
+        group_private: "Privat / Grup",
+        btn_book_west: "Booking Paket Barat",
+        btn_book_east: "Booking Paket Timur",
+        btn_book_custom: "Tanya / Rancang Rute Sendiri",
+        snork_tag: "MORE THAN JUST A TRIP",
+        snork_heading: "Snorkeling & Island Experiences",
+        snork_desc: "Nikmati keindahan bawah laut Nusa Penida yang jernih dan berenang langsung bersama Ikan Pari Manta di habitat aslinya.",
+        btn_consult_snork: "Konsultasi Snorkeling",
+        side1_title: "Snorkeling Trip",
+        side1_desc: "Manta Bay, Gamat Bay, Crystal Bay",
+        side2_title: "Tiket Fastboat PP",
+        side2_desc: "Sanur - Nusa Penida PP",
+        side3_title: "Makan Siang & Resto",
+        side3_desc: "Sudah Termasuk di Paket Tour",
+        how_tag: "HOW TO BOOK",
+        how_heading: "Gampang Banget, Cuma 4 Langkah!",
+        step1_title: "Pilih Paket",
+        step1_desc: "Pilih paket Barat, Timur, atau Custom Snorkeling Trip.",
+        step2_title: "Isi Detail",
+        step2_desc: "Tentukan tanggal trip dan jumlah rombongan.",
+        step3_title: "Kirim ke WhatsApp",
+        step3_desc: "Pesan tersusun otomatis dan langsung terkirim ke WhatsApp driver.",
+        step4_title: "Jadwal Diamankan",
+        step4_desc: "Driver mengonfirmasi ketersediaan dan mobil siap menjemput Anda!",
+        close_tag: "LET'S EXPLORE TOGETHER",
+        close_heading: "Siap Jalan-jalan ke Nusa Penida?",
+        close_desc: "Konsultasikan rencana liburanmu langsung dengan driver lokal kami via WhatsApp.",
+        btn_chat_wa: "Chat WhatsApp Sekarang",
+        floating_tooltip: "Tanya Driver / Chat Kami",
+        modal_badge: "FORM BOOKING CEPAT",
+        modal_title: "Pesan Jadwal Tour",
+        modal_desc: "Pesan langsung terkirim rapi ke WhatsApp Mas Admin.",
+        label_pkg: "Pilihan Paket Wisata",
+        label_date: "Tanggal Trip",
+        label_guests: "Jumlah Orang",
+        label_name: "Nama Pemesan",
+        label_pickup: "Lokasi Jemput (Hotel / Sanur)",
+        btn_submit_modal: "Kirim Booking ke WhatsApp"
       }
     };
 
-    let currentLang = 'id';
+    // DEFAULT LANGUAGE = ENGLISH
+    let currentLang = 'en';
 
-    function toggleLanguage() {
-      currentLang = currentLang === 'id' ? 'en' : 'id';
-      
-      // Update Tombol Flag
-      document.getElementById('langFlag').innerText = currentLang === 'id' ? '🇮🇩' : '🇬🇧';
-      document.getElementById('langText').innerText = currentLang.toUpperCase();
-      
-      // Ganti seluruh teks di halaman
+    function setLanguage(lang) {
+      currentLang = lang;
+
+      // Update Styling Tombol Pill
+      const btnEN = document.getElementById('btnLangEN');
+      const btnID = document.getElementById('btnLangID');
+
+      if (lang === 'en') {
+        btnEN.className = "px-2.5 py-1 rounded-full bg-ocean text-white shadow-sm transition-all duration-200 flex items-center gap-1";
+        btnID.className = "px-2.5 py-1 rounded-full text-slate-600 hover:text-ocean transition-all duration-200 flex items-center gap-1";
+      } else {
+        btnID.className = "px-2.5 py-1 rounded-full bg-ocean text-white shadow-sm transition-all duration-200 flex items-center gap-1";
+        btnEN.className = "px-2.5 py-1 rounded-full text-slate-600 hover:text-ocean transition-all duration-200 flex items-center gap-1";
+      }
+
+      // Terjemahkan seluruh elemen teks
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (DICTIONARY[currentLang][key]) {
@@ -698,17 +711,16 @@
         }
       });
 
-      // Update URL Floating Button Tooltip
-      const defaultMsg = currentLang === 'id' 
-        ? "Halo Admin GoTravel Nusa Penida! Mau tanya-tanya seputar trip ke Penida dong..."
-        : "Hello GoTravel Nusa Penida! I'd like to ask about tour packages in Nusa Penida...";
+      // Update URL Floating WA Button
+      const defaultMsg = currentLang === 'en'
+        ? "Hello GoTravel Nusa Penida! I'd like to ask about tour packages in Nusa Penida..."
+        : "Halo Admin GoTravel Nusa Penida! Mau tanya-tanya seputar trip ke Penida dong...";
       
       const floatingUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(defaultMsg)}`;
       document.getElementById('floatingBtn').href = floatingUrl;
       document.getElementById('floatingTooltip').href = floatingUrl;
     }
 
-    // Modal Logic
     function openBookingModal(packageName) {
       const modal = document.getElementById('bookingModal');
       const select = document.getElementById('modalPackage');
@@ -722,28 +734,16 @@
       document.getElementById('bookingModal').classList.add('hidden');
     }
 
-    // Kirim WhatsApp (Otomatis menyesuaikan bahasa pemesan)
     function handleSendWhatsApp(e) {
       e.preventDefault();
       const pkg = document.getElementById('modalPackage').value;
       const date = document.getElementById('modalDate').value;
       const guests = document.getElementById('modalGuests').value;
       const name = document.getElementById('modalName').value;
-      const pickup = document.getElementById('modalPickup').value || (currentLang === 'id' ? "Belum ditentukan" : "Not decided yet");
+      const pickup = document.getElementById('modalPickup').value || (currentLang === 'en' ? "Not decided yet" : "Belum ditentukan");
 
       let text = "";
-      if (currentLang === 'id') {
-        text = 
-`Halo GoTravel Nusa Penida! Mau tanya dan booking tour dong:
-
-📍 Paket: ${pkg}
-📅 Rencana Tanggal: ${date}
-👥 Jumlah Peserta: ${guests} Orang
-👤 Atas Nama: ${name}
-🏨 Penjemputan: ${pickup}
-
-Apakah jadwal tanggal tersebut masih available dan berapa total harganya? Terima kasih!`;
-      } else {
+      if (currentLang === 'en') {
         text = 
 `Hello GoTravel Nusa Penida! I would like to inquire & book a tour:
 
@@ -754,6 +754,17 @@ Apakah jadwal tanggal tersebut masih available dan berapa total harganya? Terima
 🏨 Pickup Area: ${pickup}
 
 Could you please confirm availability and price quotation? Thank you!`;
+      } else {
+        text = 
+`Halo GoTravel Nusa Penida! Mau tanya dan booking tour dong:
+
+📍 Paket: ${pkg}
+📅 Rencana Tanggal: ${date}
+👥 Jumlah Peserta: ${guests} Orang
+👤 Atas Nama: ${name}
+🏨 Penjemputan: ${pickup}
+
+Apakah jadwal tanggal tersebut masih available dan berapa total harganya? Terima kasih!`;
       }
 
       const waUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
